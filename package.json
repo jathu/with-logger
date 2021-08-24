@@ -1,0 +1,148 @@
+{
+  "name": "with-logger",
+  "version": "1.0.5",
+  "description": "A simple logger with context.",
+  "author": "Jathu Satkunarajah",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jathu/with-logger.git"
+  },
+  "keywords": [
+    "logging",
+    "context"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint . --fix --ext .ts,.tsx,.js,.jsx,.json",
+    "lint:test": "eslint . --ext .ts,.tsx,.js,.jsx,.json"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.24.1",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-unused-imports": "^1.1.4",
+    "prettier": "^2.3.2",
+    "typescript": "^4.3.5"
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "dist"
+  ],
+  "eslintConfig": {
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": 2020,
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint",
+      "import",
+      "unused-imports"
+    ],
+    "extends": [
+      "plugin:@typescript-eslint/recommended",
+      "plugin:prettier/recommended"
+    ],
+    "rules": {
+      "indent": "off",
+      "@typescript-eslint/indent": "off",
+      "import/order": [
+        "error",
+        {
+          "alphabetize": {
+            "order": "asc",
+            "caseInsensitive": true
+          },
+          "newlines-between": "never",
+          "groups": [
+            "builtin",
+            "external"
+          ],
+          "pathGroupsExcludedImportTypes": [
+            "builtin"
+          ]
+        }
+      ],
+      "import/no-duplicates": [
+        "error"
+      ],
+      "no-duplicate-imports": "off",
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-non-null-assertion": "off",
+      "unused-imports/no-unused-imports-ts": "error",
+      "unused-imports/no-unused-vars-ts": [
+        "warn",
+        {
+          "vars": "all",
+          "varsIgnorePattern": "^_",
+          "args": "after-used",
+          "argsIgnorePattern": "^_",
+          "ignoreRestSiblings": true
+        }
+      ],
+      "import/no-default-export": [
+        "error"
+      ],
+      "@typescript-eslint/naming-convention": [
+        "error",
+        {
+          "selector": "default",
+          "format": [
+            "camelCase"
+          ],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": [
+            "variable",
+            "function"
+          ],
+          "format": [
+            "camelCase",
+            "UPPER_CASE",
+            "PascalCase"
+          ],
+          "leadingUnderscore": "allow"
+        },
+        {
+          "selector": [
+            "typeLike",
+            "enumMember"
+          ],
+          "format": [
+            "PascalCase"
+          ]
+        }
+      ],
+      "@typescript-eslint/no-use-before-define": [
+        "error",
+        {
+          "functions": false
+        }
+      ],
+      "no-var": [
+        "error"
+      ],
+      "func-style": [
+        "error",
+        "expression"
+      ],
+      "@typescript-eslint/no-useless-constructor": [
+        "error"
+      ],
+      "@typescript-eslint/no-explicit-any": "off"
+    }
+  }
+}
