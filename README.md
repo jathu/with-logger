@@ -1,16 +1,16 @@
 ![with-logger](github-banner.png)
 
-![Workflow status](https://github.com/jathu/with-logger/actions/workflows/publish_master_to_npm.yml/badge.svg)
+![npm Version](https://img.shields.io/npm/v/with-logger) ![Total Downloads](https://img.shields.io/npm/dt/with-logger?label=Downloads) ![Workflow status](https://github.com/jathu/with-logger/actions/workflows/publish_master_to_npm.yml/badge.svg)
 
 ## Installation
 
 [npmjs.com/package/with-logger](https://www.npmjs.com/package/with-logger)
 
 ```bash
-# Yarn
+# yarn
 $ yarn add with-logger
 
-# NPM
+# npm
 $ npm install with-logger
 ```
 
