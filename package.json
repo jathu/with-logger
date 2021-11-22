@@ -1,6 +1,6 @@
 {
   "name": "with-logger",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A simple logger with context.",
   "author": "Jathu Satkunarajah",
   "license": "MIT",
