@@ -1,4 +1,4 @@
-![with-logger](github-banner.png)
+![with-logger](banner.png)
 
 ![npm Version](https://img.shields.io/npm/v/with-logger) ![Total Downloads](https://img.shields.io/npm/dt/with-logger?label=Downloads) ![Workflow status](https://github.com/jathu/with-logger/actions/workflows/publish_master_to_npm.yml/badge.svg)
 
