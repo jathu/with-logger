@@ -10,7 +10,7 @@ interface Logger {
   (message?: any, ...optionalParams: any[]): void;
 }
 
-type Level = "debug" | "info" | "warn" | "error";
+type Level = "trace" | "log" | "debug" | "info" | "warn" | "error";
 
 const ansi = (code: number, message: string): string =>
   ["\x1b[", code, "m", message, "\x1b[0m"].join("");
@@ -23,7 +23,7 @@ const formattedTime = (now: Date): string =>
     2,
     [
       [now.getFullYear(), zeroPad(now.getMonth()), zeroPad(now.getDate())].join(
-        "-"
+        "-",
       ),
       [
         [now.getHours(), now.getMinutes(), now.getSeconds()]
@@ -31,11 +31,14 @@ const formattedTime = (now: Date): string =>
           .join(":"),
         zeroPad(now.getMilliseconds(), 100),
       ].join("."),
-    ].join(" ")
+    ].join(" "),
   );
 
 const formattedLogLevel = (level: Level): string => {
   switch (level) {
+    case "trace":
+    case "log":
+      return ansi(37, level);
     case "debug":
       return ansi(32, "debug");
     case "info":
@@ -65,6 +68,10 @@ const logPrefix = (level: Level, context: { [key: string]: any }): string =>
 const contextLogger = (context: {
   [key: string]: any;
 }): { [key in Level]: Logger } => ({
+  trace: (message?: any, ...optionalParams: any[]): void =>
+    console.trace(logPrefix("trace", context), message, ...optionalParams),
+  log: (message?: any, ...optionalParams: any[]): void =>
+    console.log(logPrefix("log", context), message, ...optionalParams),
   debug: (message?: any, ...optionalParams: any[]): void =>
     console.debug(logPrefix("debug", context), message, ...optionalParams),
   info: (message?: any, ...optionalParams: any[]): void =>
