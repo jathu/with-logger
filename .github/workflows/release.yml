@@ -1,0 +1,23 @@
+name: release
+on:
+  push:
+    paths:
+      - index.ts
+    branches:
+      - master
+jobs:
+  publish:
+    name: publish
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 20.x
+          registry-url: "https://registry.npmjs.org"
+      - run: yarn install
+      - run: yarn lint:test
+      - run: yarn build
+      - run: yarn publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
