@@ -13,7 +13,9 @@ interface Logger {
 type Level = "trace" | "log" | "debug" | "info" | "warn" | "error";
 
 const ansi = (code: number, message: string): string =>
-  ["\x1b[", code, "m", message, "\x1b[0m"].join("");
+  process.env.NO_COLOR
+    ? message
+    : ["\x1b[", code, "m", message, "\x1b[0m"].join("");
 
 const zeroPad = (value: number, limit = 10) =>
   value < limit ? `0${value}` : value.toString();
