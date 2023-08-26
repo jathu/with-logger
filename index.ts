@@ -23,7 +23,7 @@ const formattedTime = (now: Date): string =>
     2,
     [
       [now.getFullYear(), zeroPad(now.getMonth()), zeroPad(now.getDate())].join(
-        "-"
+        "-",
       ),
       [
         [now.getHours(), now.getMinutes(), now.getSeconds()]
@@ -31,7 +31,7 @@ const formattedTime = (now: Date): string =>
           .join(":"),
         zeroPad(now.getMilliseconds(), 100),
       ].join("."),
-    ].join(" ")
+    ].join(" "),
   );
 
 const formattedLogLevel = (level: Level): string => {
